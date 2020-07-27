@@ -1,91 +1,39 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: LoginPage(),
-  ));
-}
-
-class Stack extends StatefulWidget {
+class LoginPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    return _Stack();
+    return _LoginPage();
   }
 }
 
-class _Stack extends State<Stack> {
-  List<int> stk = new List<int>();
-  TextEditingController edit = new TextEditingController();
-
+class _LoginPage extends State<LoginPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Color(0xff181818),
-          title: Text(
-            'Stack',
-            style: TextStyle(
-              fontSize: 22,
-              color: Colors.grey,
-            ),
-          ),
-        ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              TextFormField(
-                textAlign: TextAlign.center,
-                controller: edit,
-                onEditingComplete: () {
-                  setState(() {});
-                },
-              ),
-              Text(edit.text),
-              RaisedButton(
-                child: Text("Push"),
-                onPressed: () {
-                  stk.add(int.parse(edit.text));
-                  setState(() {
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Login Page"),
+      ),
+      body: Column(
+    children: <Widget>[
+      Text("Username"),
+      TextFormField(
 
-                  });
-                },
-              ),
-              RaisedButton(
-                child: Text("Pop"),
-                onPressed: () {
-                  try{
-                    stk.removeLast();
-                  }on RangeError catch(e) {
-                    print("Underflow Detected!");
-                  }
-                  setState(() {
+      ),
+      Text("Password"),
+      TextFormField(
 
-                  });
-                },
-              ),
-              Column(
-                children: returnStackElements(),
-              )
-            ],
-          ),
-        )
+      ),
+      RaisedButton(
+        child: Text("Sign In"),
+        onPressed: null,
+      ),
+      RaisedButton(
+        child: Text("Sign Up"),
+      ),
+    ],
+    ),
     );
-  }
-  List<Widget> returnStackElements() {
-    List<Widget> ToReturn = [];
-    stk.reversed.forEach((element) {
-      ToReturn.add(
-          Text(
-              element.toString()
-          )
-      );
-    });
-    return ToReturn;
   }
 }
