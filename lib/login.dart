@@ -16,24 +16,24 @@ class _LoginPage extends State<LoginPage>{
         title: Text("Login Page"),
       ),
       body: Column(
-    children: <Widget>[
-      Text("Username"),
-      TextFormField(
+        children: <Widget>[
+          Text("Username"),
+          TextFormField(
 
-      ),
-      Text("Password"),
-      TextFormField(
+          ),
+          Text("Password"),
+          TextFormField(
 
+          ),
+          RaisedButton(
+            child: Text("Sign In"),
+            onPressed: null,
+          ),
+          RaisedButton(
+            child: Text("Sign Up"),
+          ),
+        ],
       ),
-      RaisedButton(
-        child: Text("Sign In"),
-        onPressed: null,
-      ),
-      RaisedButton(
-        child: Text("Sign Up"),
-      ),
-    ],
-    ),
     );
   }
 }
